@@ -2,45 +2,119 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="assets/style.css"/>
-        
+        <link rel="stylesheet" href="assets/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        />
         <title>Calculadora Simples</title>
     </head>
     <body>
         <div class="calculator">
-            <h1>Calculadora</h1>
-            <p id="Res"></p>
-            <table>
-                <tr>
-                    <td><button class="Operator" id="Porc" onclick="insert('%')">&#37;</button></td>
-                    <td><button class="Operator" id="Div" onclick="insert('/')">&#247;</button></td>
-                    <td><button class="Operator" id="BS" onclick="Del()">&#8592;</button></td>
-                    <td><button class="Operator" id="Limpar" onclick="Limpar()">&#xF292;</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="insert('1')">1</button></td>
-                    <td><button onclick="insert('2')">2</button></td>
-                    <td><button onclick="insert('3')">3</button></td>
-                    <td><button class="Operator" id="Mult" onclick="insert('*')">&#215;</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="insert('4')">4</button></td>
-                    <td><button onclick="insert('5')">5</button></td>
-                    <td><button onclick="insert('6')">6</button></td>
-                    <td><button class="Operator" id="Ad" onclick="insert('+')">+</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="insert('7')">7</button></td>
-                    <td><button onclick="insert('8')">8</button></td>
-                    <td><button onclick="insert('9')">9</button></td>
-                    <td><button class="Operator" id="Sub" onclick="insert('-')">-</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="insert('.')">.</button></td>
-                    <td><button onclick="insert('0')">0</button></td>
-                    <td colspan="2"><button id="ButIgual" onclick="Calc()">&#61;</button></td>
-                </tr>
-            </table>
+            <div id="disp">
+                <h1>Calculadora</h1>
+                <p id="Res"></p>
+                <table>
+                    <tr>
+                        <td>
+                            <button
+                                class="Operator"
+                                id="Porc"
+                                onclick="insert('%')"
+                            >
+                                &#37;
+                            </button>
+                        </td>
+                        <td>
+                            <button
+                                class="Operator"
+                                id="Div"
+                                onclick="insert('/')"
+                            >
+                                &#247;
+                            </button>
+                        </td>
+                        <td>
+                            <button class="Operator" id="BS" onclick="Del()">
+                                &#8592;
+                            </button>
+                        </td>
+                        <td>
+                            <button
+                                class="Operator"
+                                id="history"
+                                onclick="historico()"
+                            >
+                                <i class="bi bi-clock-history"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="insert('1')">1</button></td>
+                        <td><button onclick="insert('2')">2</button></td>
+                        <td><button onclick="insert('3')">3</button></td>
+                        <td>
+                            <button
+                                class="Operator"
+                                id="Mult"
+                                onclick="insert('*')"
+                            >
+                                &#215;
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="insert('4')">4</button></td>
+                        <td><button onclick="insert('5')">5</button></td>
+                        <td><button onclick="insert('6')">6</button></td>
+                        <td>
+                            <button
+                                class="Operator"
+                                id="Ad"
+                                onclick="insert('+')"
+                            >
+                                +
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="insert('7')">7</button></td>
+                        <td><button onclick="insert('8')">8</button></td>
+                        <td><button onclick="insert('9')">9</button></td>
+                        <td>
+                            <button
+                                class="Operator"
+                                id="Sub"
+                                onclick="insert('-')"
+                            >
+                                -
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="insert('.')">.</button></td>
+                        <td><button onclick="insert('0')">0</button></td>
+                        <td>
+                            <button id="ButIgual" onclick="Calc()">
+                                &#61;
+                            </button>
+                        </td>
+                        <td>
+                            <button class="Operator" id="BS" onclick="Limpar()">
+                                C
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="historico">
+                <h1 id="title-hist">Calc-Historico</h1>
+                <div class="itens">
+                </div>
+                <button id="back" onclick="volta()">
+                    <i class="bi bi-skip-backward-btn"></i>
+                </button>
+            </div>
         </div>
         <script src="assets/script.js"></script>
     </body>
